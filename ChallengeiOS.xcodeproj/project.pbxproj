@@ -97,12 +97,9 @@
 		2EE5988C2BEF838E00137744 /* ChallengeiOS */ = {
 			isa = PBXGroup;
 			children = (
-				2EE5988D2BEF838E00137744 /* AppDelegate.swift */,
-				2EE5988F2BEF838E00137744 /* SceneDelegate.swift */,
-				2EE598912BEF838E00137744 /* ViewController.swift */,
-				2EE598962BEF839100137744 /* Assets.xcassets */,
-				2EE598982BEF839100137744 /* LaunchScreen.storyboard */,
-				2EE5989B2BEF839100137744 /* Info.plist */,
+				2EE598BF2BEF85BA00137744 /* Scenes */,
+				2EE598BE2BEF85AA00137744 /* Sources */,
+				2EE598BD2BEF859A00137744 /* Resources */,
 			);
 			path = ChallengeiOS;
 			sourceTree = "<group>";
@@ -122,6 +119,33 @@
 				2EE598B02BEF839200137744 /* ChallengeiOSUITestsLaunchTests.swift */,
 			);
 			path = ChallengeiOSUITests;
+			sourceTree = "<group>";
+		};
+		2EE598BD2BEF859A00137744 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2EE598962BEF839100137744 /* Assets.xcassets */,
+				2EE598982BEF839100137744 /* LaunchScreen.storyboard */,
+				2EE5989B2BEF839100137744 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2EE598BE2BEF85AA00137744 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				2EE5988D2BEF838E00137744 /* AppDelegate.swift */,
+				2EE5988F2BEF838E00137744 /* SceneDelegate.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		2EE598BF2BEF85BA00137744 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				2EE598912BEF838E00137744 /* ViewController.swift */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -431,7 +455,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ChallengeiOS/Info.plist;
+				INFOPLIST_FILE = ChallengeiOS/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -458,7 +482,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ChallengeiOS/Info.plist;
+				INFOPLIST_FILE = ChallengeiOS/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
