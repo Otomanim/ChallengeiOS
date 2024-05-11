@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		2EE5988E2BEF838E00137744 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5988D2BEF838E00137744 /* AppDelegate.swift */; };
 		2EE598902BEF838E00137744 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5988F2BEF838E00137744 /* SceneDelegate.swift */; };
-		2EE598922BEF838E00137744 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE598912BEF838E00137744 /* ViewController.swift */; };
+		2EE598922BEF838E00137744 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE598912BEF838E00137744 /* HomeViewController.swift */; };
 		2EE598972BEF839100137744 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EE598962BEF839100137744 /* Assets.xcassets */; };
 		2EE5989A2BEF839100137744 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EE598982BEF839100137744 /* LaunchScreen.storyboard */; };
 		2EE598A52BEF839200137744 /* ChallengeiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE598A42BEF839200137744 /* ChallengeiOSTests.swift */; };
 		2EE598AF2BEF839200137744 /* ChallengeiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE598AE2BEF839200137744 /* ChallengeiOSUITests.swift */; };
 		2EE598B12BEF839200137744 /* ChallengeiOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE598B02BEF839200137744 /* ChallengeiOSUITestsLaunchTests.swift */; };
+		2EE598C32BEF871500137744 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE598C22BEF871500137744 /* HomeViewModel.swift */; };
+		2EE598C52BEFA22E00137744 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE598C42BEFA22E00137744 /* NetworkService.swift */; };
+		2EE598C72BEFA36800137744 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE598C62BEFA36800137744 /* HomeModel.swift */; };
+		2EE598C92BEFA38500137744 /* HomeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE598C82BEFA38500137744 /* HomeFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +42,7 @@
 		2EE5988A2BEF838E00137744 /* ChallengeiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChallengeiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EE5988D2BEF838E00137744 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EE5988F2BEF838E00137744 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2EE598912BEF838E00137744 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2EE598912BEF838E00137744 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2EE598962BEF839100137744 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2EE598992BEF839100137744 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2EE5989B2BEF839100137744 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +51,10 @@
 		2EE598AA2BEF839200137744 /* ChallengeiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengeiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EE598AE2BEF839200137744 /* ChallengeiOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeiOSUITests.swift; sourceTree = "<group>"; };
 		2EE598B02BEF839200137744 /* ChallengeiOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeiOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2EE598C22BEF871500137744 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		2EE598C42BEFA22E00137744 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		2EE598C62BEFA36800137744 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		2EE598C82BEFA38500137744 /* HomeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,9 +151,29 @@
 		2EE598BF2BEF85BA00137744 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				2EE598912BEF838E00137744 /* ViewController.swift */,
+				2EE598C12BEF86EF00137744 /* New Group */,
+				2EE598C02BEF86E100137744 /* Home */,
+				2EE598C42BEFA22E00137744 /* NetworkService.swift */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		2EE598C02BEF86E100137744 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2EE598912BEF838E00137744 /* HomeViewController.swift */,
+				2EE598C22BEF871500137744 /* HomeViewModel.swift */,
+				2EE598C62BEFA36800137744 /* HomeModel.swift */,
+				2EE598C82BEFA38500137744 /* HomeFactory.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		2EE598C12BEF86EF00137744 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,9 +306,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EE598922BEF838E00137744 /* ViewController.swift in Sources */,
+				2EE598C52BEFA22E00137744 /* NetworkService.swift in Sources */,
+				2EE598922BEF838E00137744 /* HomeViewController.swift in Sources */,
+				2EE598C92BEFA38500137744 /* HomeFactory.swift in Sources */,
+				2EE598C72BEFA36800137744 /* HomeModel.swift in Sources */,
 				2EE5988E2BEF838E00137744 /* AppDelegate.swift in Sources */,
 				2EE598902BEF838E00137744 /* SceneDelegate.swift in Sources */,
+				2EE598C32BEF871500137744 /* HomeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
