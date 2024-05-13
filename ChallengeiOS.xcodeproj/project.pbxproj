@@ -19,6 +19,7 @@
 		2EE598C52BEFA22E00137744 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE598C42BEFA22E00137744 /* NetworkService.swift */; };
 		2EE598C72BEFA36800137744 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE598C62BEFA36800137744 /* HomeModel.swift */; };
 		2EE598C92BEFA38500137744 /* HomeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE598C82BEFA38500137744 /* HomeFactory.swift */; };
+		2EE598CB2BF0190400137744 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE598CA2BF0190400137744 /* HomeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		2EE598C42BEFA22E00137744 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		2EE598C62BEFA36800137744 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		2EE598C82BEFA38500137744 /* HomeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFactory.swift; sourceTree = "<group>"; };
+		2EE598CA2BF0190400137744 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				2EE598C22BEF871500137744 /* HomeViewModel.swift */,
 				2EE598C62BEFA36800137744 /* HomeModel.swift */,
 				2EE598C82BEFA38500137744 /* HomeFactory.swift */,
+				2EE598CA2BF0190400137744 /* HomeTableViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				2EE598C72BEFA36800137744 /* HomeModel.swift in Sources */,
 				2EE5988E2BEF838E00137744 /* AppDelegate.swift in Sources */,
 				2EE598902BEF838E00137744 /* SceneDelegate.swift in Sources */,
+				2EE598CB2BF0190400137744 /* HomeTableViewCell.swift in Sources */,
 				2EE598C32BEF871500137744 /* HomeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
