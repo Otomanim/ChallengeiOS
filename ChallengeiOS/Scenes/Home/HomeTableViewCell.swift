@@ -46,13 +46,11 @@ class HomeCell: UITableViewCell {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFill
-//        image.backgroundColor = UIColor.black.withAlphaComponent(0.1)
         image.layer.cornerRadius = 20
         image.clipsToBounds = true
-        image.layer.opacity = 0.2
-//        image.layer.borderColor = UIColor.white.cgColor
-//        image.layer.borderWidth = 1
-//        image.isHidden = true
+        image.layer.opacity = 0.3
+        image.layer.borderColor = UIColor.white.cgColor
+        image.layer.borderWidth = 1
         return image
     }()
     
@@ -71,18 +69,6 @@ class HomeCell: UITableViewCell {
         stack.axis = .vertical
         stack.spacing = 20
         return stack
-    }()
-    
-    private let view: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.1)
-        view.layer.cornerRadius = 20
-        view.clipsToBounds = true
-        view.layer.borderColor = UIColor.white.cgColor
-        view.layer.borderWidth = 1
-        view.isHidden = false
-        return view
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -104,25 +90,19 @@ class HomeCell: UITableViewCell {
     }
     
     private func setupUI() {
-        contentView.addSubview(view)
         contentView.addSubview(imageViewUrl)
         contentView.addSubview(containerStackView)
         
         NSLayoutConstraint.activate([
-            view.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-            view.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            view.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            view.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
-            view.heightAnchor.constraint(equalTo: view.widthAnchor),
-            imageViewUrl.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
+            imageViewUrl.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             imageViewUrl.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             imageViewUrl.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            imageViewUrl.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
+            imageViewUrl.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             imageViewUrl.heightAnchor.constraint(equalTo: imageViewUrl.widthAnchor),
-            containerStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
-            containerStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            containerStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            containerStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10),
+            containerStackView.topAnchor.constraint(equalTo: imageViewUrl.topAnchor, constant: 15),
+            containerStackView.leadingAnchor.constraint(equalTo: imageViewUrl.leadingAnchor, constant: 15),
+            containerStackView.trailingAnchor.constraint(equalTo: imageViewUrl.trailingAnchor, constant: -15),
+            containerStackView.bottomAnchor.constraint(equalTo: imageViewUrl.bottomAnchor, constant: -15),
             titleLabel.heightAnchor.constraint(equalTo: containerStackView.heightAnchor, multiplier: 0.3)
         ])
     }
