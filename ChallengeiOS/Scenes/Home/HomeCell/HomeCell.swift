@@ -8,6 +8,7 @@
 import UIKit
 
 class HomeCell: UITableViewCell {
+    
     static var indentifier: String {
         String(describing: self)
     }
