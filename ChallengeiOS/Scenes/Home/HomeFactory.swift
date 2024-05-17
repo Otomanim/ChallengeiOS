@@ -12,6 +12,7 @@ enum HomeFactory {
         let service = NetworkService()
         let viewModel = HomeViewModel(networkService: service)
         let viewController = HomeViewController(homeViewModel: viewModel)
+        viewModel.delegate = viewController
         return viewController
     }
 }

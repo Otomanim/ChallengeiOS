@@ -7,47 +7,66 @@
 
 import UIKit
 
-protocol HomeViewModeling: AnyObject {
-    func fechData(for keyword: String)
+protocol HomeViewModelProtocol: AnyObject {
+    var delegate: HomeViewModelDelegate? { get set }
+    
+    func fetchData(for keyword: String)
     func configure(with cell: HomeCell, at indexPath: IndexPath)
+    func getArticle(at index: Int) -> Article?
+    func getHomeModel() -> [Article]
+    func numberOfItems() -> Int
 }
 
 protocol HomeViewModelDelegate: AnyObject {
     func reloadData()
 }
 
-class HomeViewModel: HomeViewModeling {
+class HomeViewModel: HomeViewModelProtocol {
     
-    var homeModel: [Article] = []
-    
-    private let networkService: NetworkServicing
-    
+    // MARK: - Properties
+    private var homeModel: [Article] = []
+    private let networkService: NetworkServiceProtocol
     weak var delegate: HomeViewModelDelegate?
     
-    init(networkService: NetworkServicing) {
+    init(networkService: NetworkServiceProtocol) {
         self.networkService = networkService
     }
     
-    func fechData(for keyword: String) {
+    // MARK: - Public Methods
+    func numberOfItems() -> Int {
+        return homeModel.count
+    }
+    
+    func getHomeModel() -> [Article] {
+        return homeModel
+    }
+
+    func getArticle(at index: Int) -> Article? {
+        guard index >= 0 && index < homeModel.count else {
+            return nil
+        }
+        return homeModel[index]
+    }
+
+    func fetchData(for keyword: String) {
         networkService.getData(keyword: keyword) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let articles):
-                homeModel = articles
+                self.homeModel = articles
                 DispatchQueue.main.async {
                     self.delegate?.reloadData()
                 }
             case .failure(let error):
-                print("Erro ao buscar dados: \(error)")
+                self.handleError(error)
             }
         }
     }
-    
+
     func configure(with cell: HomeCell, at indexPath: IndexPath) {
         guard indexPath.row < homeModel.count else {
             return
         }
-        
         let article = homeModel[indexPath.row]
         
         guard let title = article.title,
@@ -58,19 +77,40 @@ class HomeViewModel: HomeViewModeling {
             return
         }
         
-        cell.titleLabel.text = title
-        cell.descriptionLabel.text = description
-        cell.authorLabel.text = author
         
-        networkService.loadImage(from: article.urlToImage) { imageData in
+        cell.titleLabel.text = article.title
+        cell.descriptionLabel.text = article.description
+        cell.authorLabel.text = article.author
+        
+        loadImage(from: article.urlToImage) { image in
             DispatchQueue.main.async {
-                if let data = imageData, let image = UIImage(data: data) {
-                    cell.imageViewUrl.image = image
-                } else {
-                    cell.imageViewUrl.image = UIImage(named: "placeholder")
-                }
+                cell.imageViewUrl.image = image ?? UIImage(named: "placeholder")
             }
         }
     }
     
 }
+
+// MARK: - Private Methods
+private extension HomeViewModel {
+
+    func loadImage(from urlString: String?, completion: @escaping (UIImage?) -> Void) {
+        guard let urlString = urlString, let url = URL(string: urlString) else {
+            completion(nil)
+            return
+        }
+        networkService.loadImage(from: url.absoluteString) { imageData in
+            if let data = imageData, let image = UIImage(data: data) {
+                completion(image)
+            } else {
+                completion(nil)
+            }
+        }
+    }
+
+    func handleError(_ error: Error) {
+        // Handle error as needed
+        print("Erro ao buscar dados: \(error)")
+    }
+}
+
