@@ -7,19 +7,14 @@
 
 import Foundation
 
-protocol NetworkServicing: AnyObject {
+protocol NetworkServiceProtocol: AnyObject {
     func getData(keyword: String, completion: @escaping (Result<[Article], Error>) -> Void)
     func loadImage(from urlString: String?, completion: @escaping (Data?) -> Void)
 }
 
-class NetworkService: NetworkServicing{
+class NetworkService: NetworkServiceProtocol{
     
-/// Retrieves news articles related to a specified keyword from the NewsAPI.
-///
-/// - Parameters:
-///   - keyword: The keyword to search for in news articles.
-///   - completion: A closure to be executed once the data retrieval is complete. It takes a `Result` enum with a generic type of `[Article]` (an array of articles) and `Error` as parameters.
-
+    // MARK: - Public Methods
     func getData(keyword: String, completion: @escaping (Result<[Article], Error>) -> Void) {
         let apiKey = "7197eadf7eec47be9bd182c75b7ef5e9"
         let urlString = "https://newsapi.org/v2/everything?q=\(keyword)&apiKey=\(apiKey)"
@@ -56,12 +51,7 @@ class NetworkService: NetworkServicing{
             }
         }.resume()
     }
-    
-    /// Loads an image from a specified URL asynchronously.
-    ///
-    /// - Parameters:
-    ///   - urlString: The URL string from which to load the image.
-    ///   - completion: A closure to be executed once the image loading is complete. It takes `Data` as a parameter, representing the image data.
+
     func loadImage(from urlString: String?, completion: @escaping (Data?) -> Void) {
         guard let urlString = urlString, let url = URL(string: urlString) else {
             completion(nil)
