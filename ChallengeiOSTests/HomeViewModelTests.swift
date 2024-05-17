@@ -1,6 +1,6 @@
 //
 //  HomeViewModelTests.swift
-//  HomeViewModelTests
+//  ChallengeiOSTests
 //
 //  Created by Evandro Rodrigo Minamoto on 11/05/24.
 //
