@@ -7,9 +7,10 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, HomeViewModelDelegate {
+class HomeViewController: UIViewController {
     
-    private let homeViewModel: HomeViewModel
+    var selectedArticle: Article?
+    private let homeViewModel: HomeViewModelProtocol
     
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
@@ -31,10 +32,9 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
         return tableView
     }()
     
-    init(homeViewModel: HomeViewModel) {
+    init(homeViewModel: HomeViewModelProtocol) {
         self.homeViewModel = homeViewModel
         super.init(nibName: nil, bundle: nil)
-        self.homeViewModel.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -45,19 +45,15 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
         super.viewDidLoad()
         searchBar.delegate = self
         navigationItem.titleView = searchBar
-        setupUi()
-        
     }
     
-    func reloadData() {
-        DispatchQueue.main.async { [weak self] in
-            self?.tableView.reloadData()
-        }
+    override func viewDidAppear(_ animated: Bool) {
+        setupUi()
+        homeViewModel.fetchData(for: "Brasil")
     }
     
     private func setupUi() {
         view.addSubview(tableView)
-        
         
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -70,7 +66,11 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
+        
+        guard let selectedArticle = homeViewModel.getArticle(at: indexPath.row) else {return}
+        
+        let newViewcontroller = DetailsFactory.makeModule(with: selectedArticle)
+        navigationController?.pushViewController(newViewcontroller, animated: true)
     }
 }
 
@@ -80,37 +80,32 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let validArticles = homeViewModel.homeModel.filter { article in
-            return article.title != nil &&
-            article.description != nil &&
-            article.author != nil &&
-            article.urlToImage != nil
-        }
-        
-        return validArticles.count
+        return homeViewModel.numberOfItems()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeCell.indentifier) as? HomeCell else {
             return UITableViewCell()
         }
-        if homeViewModel.homeModel.isEmpty {
-            cell.titleLabel.text = nil
-            cell.authorLabel.text = nil
-            cell.descriptionLabel.text = nil
-            cell.imageViewUrl.image = nil
-        } else {
-            homeViewModel.configure(with: cell, at: indexPath)
-        }
+        cell.clear()
+        homeViewModel.configure(with: cell, at: indexPath)
         
         return cell
     }
 }
 
 extension HomeViewController: UISearchBarDelegate {
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text else {return}
-        homeViewModel.fechData(for: searchText)
+        homeViewModel.fetchData(for: searchText)
+        reloadData()
+    }
+}
+
+extension HomeViewController: HomeViewModelDelegate {
+    func reloadData() {
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
 }
