@@ -12,7 +12,7 @@
 		2EE598922BEF838E00137744 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE598912BEF838E00137744 /* HomeViewController.swift */; };
 		2EE598972BEF839100137744 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EE598962BEF839100137744 /* Assets.xcassets */; };
 		2EE5989A2BEF839100137744 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EE598982BEF839100137744 /* LaunchScreen.storyboard */; };
-		2EE598A52BEF839200137744 /* ChallengeiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE598A42BEF839200137744 /* ChallengeiOSTests.swift */; };
+		2EE598A52BEF839200137744 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE598A42BEF839200137744 /* HomeViewModelTests.swift */; };
 		2EE598AF2BEF839200137744 /* ChallengeiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE598AE2BEF839200137744 /* ChallengeiOSUITests.swift */; };
 		2EE598B12BEF839200137744 /* ChallengeiOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE598B02BEF839200137744 /* ChallengeiOSUITestsLaunchTests.swift */; };
 		2EE598C32BEF871500137744 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE598C22BEF871500137744 /* HomeViewModel.swift */; };
@@ -24,6 +24,7 @@
 		2EE598CF2BF4D9EF00137744 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE598CE2BF4D9EF00137744 /* DetailsViewModel.swift */; };
 		2EE598D12BF4DB0B00137744 /* DetailsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE598D02BF4DB0B00137744 /* DetailsFactory.swift */; };
 		2EE598DA2BF6713400137744 /* DetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE598D92BF6713400137744 /* DetailsViewModelTests.swift */; };
+		2EE598DD2BF7997800137744 /* NetworkServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE598DC2BF7997800137744 /* NetworkServiceSpy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +53,7 @@
 		2EE598992BEF839100137744 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2EE5989B2BEF839100137744 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EE598A02BEF839200137744 /* ChallengeiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengeiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2EE598A42BEF839200137744 /* ChallengeiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeiOSTests.swift; sourceTree = "<group>"; };
+		2EE598A42BEF839200137744 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		2EE598AA2BEF839200137744 /* ChallengeiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengeiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EE598AE2BEF839200137744 /* ChallengeiOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeiOSUITests.swift; sourceTree = "<group>"; };
 		2EE598B02BEF839200137744 /* ChallengeiOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeiOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -65,6 +66,7 @@
 		2EE598CE2BF4D9EF00137744 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		2EE598D02BF4DB0B00137744 /* DetailsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFactory.swift; sourceTree = "<group>"; };
 		2EE598D92BF6713400137744 /* DetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModelTests.swift; sourceTree = "<group>"; };
+		2EE598DC2BF7997800137744 /* NetworkServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceSpy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +127,8 @@
 		2EE598A32BEF839200137744 /* ChallengeiOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				2EE598A42BEF839200137744 /* ChallengeiOSTests.swift */,
+				2EE598DB2BF7990100137744 /* Spies */,
+				2EE598A42BEF839200137744 /* HomeViewModelTests.swift */,
 				2EE598D92BF6713400137744 /* DetailsViewModelTests.swift */,
 			);
 			path = ChallengeiOSTests;
@@ -197,6 +200,14 @@
 				2EE598CA2BF0190400137744 /* HomeCell.swift */,
 			);
 			path = HomeCell;
+			sourceTree = "<group>";
+		};
+		2EE598DB2BF7990100137744 /* Spies */ = {
+			isa = PBXGroup;
+			children = (
+				2EE598DC2BF7997800137744 /* NetworkServiceSpy.swift */,
+			);
+			path = Spies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,7 +358,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EE598A52BEF839200137744 /* ChallengeiOSTests.swift in Sources */,
+				2EE598DD2BF7997800137744 /* NetworkServiceSpy.swift in Sources */,
+				2EE598A52BEF839200137744 /* HomeViewModelTests.swift in Sources */,
 				2EE598DA2BF6713400137744 /* DetailsViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

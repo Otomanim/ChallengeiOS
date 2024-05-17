@@ -10,7 +10,7 @@ import XCTest
 
 class DetailsViewModelTests: XCTestCase {
     
-    var networkService = NetworkServiceMock()
+    var networkService = NetworkServiceSpy()
     
     lazy var sut: DetailsViewModel = {
         let viewModel = DetailsViewModel(article: nil, networkService: networkService)
@@ -35,21 +35,3 @@ class DetailsViewModelTests: XCTestCase {
     
 }
 
-class NetworkServiceMock: NetworkServiceProtocol {
-    
-    func getData(keyword: String, completion: @escaping (Result<[ChallengeiOS.Article], Error>) -> Void) {
-        return
-    }
-    
-    func loadImage(from urlString: String?, completion: @escaping (Data?) -> Void) {
-        
-        if let imageData = UIImage(named: "sampleImage")?.pngData() {
-            
-            completion(imageData)
-        } else {
-            
-            completion(nil)
-        }
-    }
-    
-}
