@@ -43,3 +43,7 @@ Contributions are welcome! Feel free to report issues, suggest improvements, or 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+---
+
+**© 2024 Otomanim**
